@@ -1,0 +1,27 @@
+[
+    {
+        "predicate": "All",
+        "conditions": [
+            {"field": "from_email", "predicate": "contains", "value": "Mukesh Dhyani"},
+            {"field": "subject", "predicate": "does_not_contains", "value": "Security"}
+        ],
+        "actions": ["mark_as_unread", "move_to_starred"]
+    },
+    {
+        "predicate": "Any",
+        "conditions": [
+            {"field": "subject", "predicate": "equals", "value": "HappyFox Assignment"},
+			{"field": "to_email", "predicate": "does_not_equals", "value": "sahilrawat667@gmail.com"}
+        ],
+        "actions": ["move_to_important", "move_to_category_social"]
+    },
+	{
+        "predicate": "Any",
+        "conditions": [
+            {"field": "date_received", "predicate": "less_than", "value": "1 days"},
+			{"field": "subject", "predicate": "equals", "value": "Test Video Recording"},
+            {"field": "date_received", "predicate": "greater_than", "value": "2 months"}
+        ],
+        "actions": ["mark_as_read", "move_to_spam"]
+    }
+]
