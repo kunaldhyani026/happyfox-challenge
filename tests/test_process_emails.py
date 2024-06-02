@@ -162,7 +162,8 @@ class TestEmailProcessor(unittest.TestCase):
     def setUp(self):
         # Mocking the RuleProcessor
         self.rule_processor = MagicMock()
-        self.email_processor = EmailProcessor(self.rule_processor)
+        with patch.object(EmailProcessor, '_EmailProcessor__fetch_emails', return_value=None):
+            self.email_processor = EmailProcessor(self.rule_processor)
 
     def test_fetch_emails(self):
         # Mocking the database cursor and execute method
